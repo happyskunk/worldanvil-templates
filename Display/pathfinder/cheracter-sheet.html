@@ -1,0 +1,20 @@
+{% extends 'RPGSRDBundle:Templates:base.html.twig' %}
+{% import 'RPGSRDBundle:Templates:pathfinder/pathfinder-macros.html.twig' as macros %}
+{% block body %}
+<div class="col-md-12">
+    {% block char_general %}
+    <div class="col-md-4">
+        {% block char_general_logo %}
+        {% endblock %}
+    </div>
+    <div class="col-md-8">
+        {% block char_general_info %}
+        {% endblock %}
+    </div>
+    {% endblock %}
+</div>
+<div class="col-md-4">
+    {% block body %}
+    {% endblock %}
+</div>
+{% endblock %}

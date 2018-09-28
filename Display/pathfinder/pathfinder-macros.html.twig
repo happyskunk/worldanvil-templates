@@ -1,0 +1,25 @@
+{% macro attrModifier(score) %}
+    {% if score is defined %}
+        {% set mod = (score - 10)//2 %}
+        {% if mod >= 0 %}
+            [roll:1d20+{{ mod }}|+{{ mod }}]
+        {% else %}  
+            [roll:1d20{{ mod }}|{{ mod }}]
+        {% endif %}                 
+     {% endif %}   
+{% endmacro %}
+
+{% macro skillTotal(skill_score, score) %}
+    {% if score is defined %}
+        {% if skill_score is defined and skill_score != 0 %}
+            {% set skill_mod = ((score - 10)//2 ) + skill_score %}
+        {% else %}
+            {% set skill_mod = ((score - 10)//2 ) + 0 %}
+        {% endif %}
+        {% if skill_mod >= 0 %}
+            [roll:1d20+{{ skill_mod }}|+{{ skill_mod }}]
+        {% else %}  
+            [roll:1d20{{ skill_mod }}|{{ skill_mod }}]
+        {% endif %}
+    {% endif %}
+{% endmacro %}
